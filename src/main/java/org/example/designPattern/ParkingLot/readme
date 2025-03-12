@@ -1,0 +1,86 @@
+<<ParkingSpot>>
+    id : int
+    isOccupied : boolean
+    vehicle : Vehicle
+
+    parkVehicle(Vehicle vehicle) : boolean
+    unParkVehicle() : boolean
+
+<<TwoWheelerSpot>>
+    getPrice() : int
+
+<<FourWheelerSpot>>
+    getPrice() : int
+
+<<ParkingSpotManager>>
+    parkingSpots: List<ParkingSpot>
+    parkingStrategy : ParkingStrategy
+
+
+
+    ParkingSpotManager(List<ParkingSpot> list)
+    addParkingSpot(ParkingSpot parkingSpot) : void
+    removeParkingSpot(ParkingSpot parkingSpot) : void
+    parkVehicle(): boolean
+    unParkVehicle(): boolean
+
+
+<<TwoWheelerSpotManager>>   <<FourWheelerSpotManager>>
+  Only manages 2 wheeler     Only manages 4 wheeler
+     findParkingSpot()          findParkingSpot()
+
+
+<<ParkingStrategy>>
+findParkingStrategy()
+
+<<DefaultParkingStrategy>>   <<NearToEntranceParkingStrategy>> <<NearToEntranceAndElevator>>
+
+
+<<Vehicle>>
+   vehicleNumber : String
+   vehicleType : VehicleType
+
+<<Ticket>>
+    id: String
+    entryTime : Date
+    exitTime : Date
+    vehicle : Vehicle
+    spot : ParkingSpot
+
+<<ParkingSpotManagerFactory>>
+    getParkingSpotManager(VehicleType vehicleType)
+
+<<EntranceGate>>
+    parkingSpotManagerFactory : ParkingSpotManagerFactory
+    parkingSpotManager : ParkingSpotManager
+
+    findParkingSpot(Vehicle vehicle, EntranceGate eg) : ParkingSpot
+    bookSpot(Vehicle vehicle) : boolean
+    generateTicket(Vehicle vehicle, ParkingSpot parkingSpot)
+
+<<ExitGate>>
+    Ticket ticket
+    costComputation : CostComputation
+    payment : Payment
+    parkingSpotManager : ParkingSpotManager
+    parkingSpotManagerFactory: ParkingSpotManagerFactory
+
+    getPriceForVehicle(Ticket ticket)
+    payTicket()
+
+<<CostComputationFactory>>
+    getCostComputationObject(Ticket ticket)
+
+<<CostComputation>>
+    priceStrategy : PriceStrategy
+
+
+<<TwoWheelerCostComputation>>    <<FourWheelerCostComputation>>
+    super(priceStrategy)
+
+
+                        <<PriceStrategy>>
+
+<<FixedPriceStrategy>>                  <<HourlyBasedParkingStrategy>>
+    getPrice(Ticket ticket)                         getPrice(Ticket ticket)
+

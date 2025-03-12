@@ -1,0 +1,67 @@
+Rough Flow -
+==========
+
+Player1 , Player2   --> ROLL DICE --> Move Piece --> If Ladder , Move  from x1 to x2  ---> First to reach 100 wins
+                                                     If Snake, Move from x2 to x1
+
+
+
+ Requirements -
+ =============
+
+ 1. Game should allow n players
+ 2. Player to reach 100 wins
+ 3. Player should move up in case of ladder
+ 4. Player should move down in case of snake
+
+ Extra Requirements
+ ==================
+ 1. Player to get extra chace in case of a 6
+ 2. Player cannnot move to board unless they get a 6.
+
+ Class Diagram -
+ ===============
+
+ <<Player>>
+ playerId: String
+ piece : Piece
+
+
+ <<BoardPiece>>
+ boardPiece : Piece
+ currentPosotion : int
+
+ <<Board>>
+     Cell[] cell;
+     List<Snake>
+     List<Ladder>
+
+     isSnakeAtCell() : boolean
+     isLadderAtCell() : boolean
+     isGameOver() : boolean
+     printBoard() : boolean
+
+ <<Dice>>
+    int faces;
+    rollDice(): int
+
+ <<Game>>
+     Board board
+     Deque<Player> players
+
+     startGame()
+     initializeBoard() -- Add Snakes and Ladder in the Board
+
+
+<<Cell>>
+    int position
+
+<<Snake>>
+    startCell: Cell
+    endCell: Cell
+
+
+<<Ladder>>
+    startCell: Cell
+    endCell: Cell
+

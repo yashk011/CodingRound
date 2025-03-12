@@ -1,0 +1,87 @@
+Requirements -
+
+0. User should be able to select his location where he want to see movie
+1. User should be able to search for movies he wants to see in his location
+2. User should be able to book movie he want to see.
+3. User should be able to view different theatres and different shows which shows movie
+4. User should be able to cancel movie if does not want to see
+5. User should be able to select seats for movie that he wishes to see.
+
+FLOW Diagram
+=========
+USER --> LOCATION --> MOVIEs --> THEATRES   --> SHOWS  --> SEAT     --> BOOKING
+                        movie1   theatre1      show1         s1, s2
+                                 theatre2      show2
+
+
+
+ENTITIES/ OBJECTS
+========
+
+1. USER
+2. LOCATION
+3. MOVIE
+4. THEATRE
+5. SHOWS
+6. SEATS
+7. SCREEN
+8. BOOKING
+9. PAYMENT
+
+
+CLASS DIAGRAM / UML DIAGRAM (Top Down)
+============================
+
+<<USER>>
+userId: String
+bookings : List<Booking>
+
+<<LOCATION>>
+location : Location
+
+<<THEATRE>>
+id: String
+screens: List<Screen>
+shows: List<Show>
+address : Address
+
+<<SCREEN>>
+id: String
+runningShow: Show
+seats: List<Seat>
+
+
+<<SEAT>>
+id : int
+isBooked: boolean
+
+<<SHOW>>
+id: String
+startTime : Date
+endTime: Date
+movie: Movie
+screen : Screen
+bookedSeats: List<Seat>
+=========
+
+<<MOVIE>>
+ movieId: String
+ movieName: String
+ movieDuration: int
+
+<<MovieService>>  location --> movies
+Map<Location , Movie> movies
+List<Movies>
+
+==========
+
+
+
+
+
+
+
+
+
+
+

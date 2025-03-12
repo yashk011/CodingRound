@@ -1,0 +1,23 @@
+
+
+<<Enum PieceType>> <<Piece>>
+    CROSS              pieceType: PieceType
+    CIRCLE
+
+<<BOARD>>
+    nrows : int
+    ncols : int
+
+    isGameCompleted()
+
+<<Player>>
+    int id
+    symbol : Symbol
+
+<<GAME>>
+    board : Board
+    players : List<Player>
+    isCompleted : boolean
+
+    placeMark(int row, int col , ENUM Symbol) : boolean
+    isGameOver() : boolean

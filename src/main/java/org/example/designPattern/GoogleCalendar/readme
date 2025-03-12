@@ -1,0 +1,278 @@
+Link - https://docs.google.com/document/d/1zzaxCUNFwiZuDwensqRaHFd4BuMey4lwv7IrnA1OK40/edit?tab=t.0
+
+Instructor: https://www.linkedin.com/in/agarwalpragy
+Class Timings: 7.30 pm - 10 pm
+(15 min break midway)
+
+
+Agenda
+Low Level Design - Google Calendar
+
+What & Why of Low Level Design
+Requirements Gathering
+Database Schema Design
+API Design & HLD overview
+Design Patterns
+
+
+FAQs
+Notes - already shared with everyone
+Video - recording available only to Scaler enrolled learners
+We will not write any runnable code in today's class
+Low Level Design round - no coding, only the architecture
+Machine Coding round - write working code
+Python / Java / C# / ... doesn't matter - the concepts we study today will apply for all.
+
+
+
+Low Level Design
+
+Google Calendar is an ambitious project
+
+Codebase for Google Calender will be complex
+100 million active users
+19 years & running
+seen requirements changing
+seen technologies changing
+Packed with features
+Developers come and go
+100+ developers in the team
+
+
+If you're building a complex project, you cannot just hack your way through.
+You have to design things properly from the ground up.
+
+Otherwise => "big ball of mud"
+
+How do we you design / architecture / structure your code so that things go smoothly.
+You code should continue functioning flawlessly in the face of changing requirements, changing scale, changing technologies.
+
+
+LLD is important for your upskilling journey
+
+Service based companies (TCS/Wipro)
+don't usually have direct LLD rounds
+still have OOP design rounds
+
+Product based companies (especially startups)
+always have a Low Level Design round
+
+LLD rounds are common even for freshers (SDE-1) in every good company.
+
+
+
+Google Calendar
+
+Collaborative, powerful, feature-packed tool for scheduling events & meetings for personal use and for organisation use.
+
+
+Step - 1 - open VSCode & start writing code
+
+Requirements Gathering
+
+Minimal Viable Product (MVP) features
+
+Minimal: least amount of features to demonstrate feasibility
+Viable: should be usable - should demonstrate the code concepts
+Product: something that solves a genuine problem for someone
+
+MVP => Proof of concept (v0)
+
+
+45 mins interview - you're on a time constraint - you must choose your features carefully.
+
+capture the core idea
+showcase your skills (a little bit of the difficult ideas)
+complete everything in time
+
+
+During a 45 min interview, you should spend at least 15 mins in gathering the requirements & deep diving into them.
+
+
+Bad Features
+Authentication
+is needed for calendar to work
+but it is not an interesting feature
+
+Multiple Views
+daily / weekly / month / ... displays
+
+Bad idea, because this is a UI addon.
+Adding this feature doesn't change anything about the backend code, the database design, the design patterns, ...
+
+This is a cosmetic feature - not an MVP feature
+
+Public Holiday List
+doesn't effect our database / backend design
+MVP Features
+
+Users should be able to view their own calendar
+Users should be able to create events on their calendar
+Users should be allowed to update/delete existing events
+Users should be able to view other people's calendars (provided they've the permission)
+Users should receive reminders & notifications about upcoming events
+The calendar should handle various timezones properly
+Users should be able to schedule recurring events
+Users should be able to invite others to their events
+Others should be able to respond to invitations
+Users should be able to collaborate with others
+Users should be able to specify if others can view their calendars or not
+who exactly can view their calendars
+When users are inviting others, they should be able to check whether that person has a meeting conflict
+suggest a time
+
+Event Features (v0)
+Every event must have an owner (on whose calendar does this event reside on)
+Event must have a specific start & end datetime+timezone
+Event must have a title
+Event Details
+Google Meet link
+Geolocation
+Color
+Label
+Description
+Sharable link
+
+Invitation Features (v0)
+The owner of the event can invite other users to the event via email
+all the guests should receive an email about the invite
+the owner can decide to not send the email if they want
+on every update to the event / guest list, we will resend the invites
+If a user has been invited to an event, they can RSVP with a specific Response
+
+
+Recurring Events (v1)
+
+We should support multiple recurrence types/formulas
+
+If the user look at their calendars for a future date, they should be able to see recurring events far into the future
+User should be able to specify when a recurring event ends
+Users should be able to edit recurring events
+just 1 event
+all events
+all events after a specific date
+
+
+
+Reminders & Notifications (v1)
+Users should be notified before an event
+Default notification 10 mins before the event
+User should be able to add more notifications
+
+Permissions (v2)
+A calendar can be public / private
+Owner can give read access of their calendar to specific users via email
+
+
+Database Schema Design
+
+Actors
+
+Our Google Calendar has just 1 actor => end user
+There's just 1 type of user
+(no clients, no organisations, no pro/free, ...)
+
+In reality, Google Calendar does have support for enterprise features
+
+
+ Entities
+Pro Tip: To identify the entities in your system, look for the nouns in your requirements
+
+For each entity, we should discuss the attributes.
+
+Every table will have basic attributed
+unique id (primary key)
+created_at
+updated_at
+User
+id
+email
+auth data (password hash, username, ...)
+Calendar
+settings
+timezone  (what timezone will the owner of this calendar see all events in)
+language
+date format
+...
+Event
+Event must have a specific start & end datetime+timezone
+Event must have a title
+Google Meet link
+Geolocation
+Color
+Label
+Description
+Sharable link
+Permission
+Access Level
+Reminder
+When (how long before the event should the reminder be raised)
+Response
+Value: yes / no / yes (from meeting room) / yes (virtually) / maybe
+
+
+ Relations
+User owns a calendar, every calendar must belong to a user, each user will have exactly 1 calendar (no more no less)
+
+
+
+
+Q: will you master LLD after this 1 case study?
+No.
+
+Core components of LLD
+
+Prerequisites
+SQL
+Object Oriented Programming (OOP)
+Abstraction
+Encapsulation
+Generalization
+Polymorphism
+compile time
+runtime
+Inheritance
+advanced
+composition over inheritance
+delegation
+multiple & multi-level inheritance
+method resolution
+diamond problem
+SOLID Principles
+Design Patterns
+many patterns
+most common ones
+Singleton
+Factory
+Strategy
+Adapter
+(be very careful while studying this)
+builder pattern in python
+all these people are wrong!
+you should NEVER implement builder patter in a language like Python/JS/Ruby/C++
+Builder pattern is a hack if your language does not support features like named args / optional args / validation / reordering args
+Case Studies
+Design a game (chess / tic tac toe / ..)
+Design Library Management System
+Design a Parking Lot
+Design Splitwise
+...
+API design
+REST apis
+idempotency
+naming conventions
+Database Schema design
+1-1 relations / 1-* relations / *-* relationships
+ownership (delete cascade)
+indexes
+views ...
+normalization
+Machine Coding
+implement a working project over a weekend
+
+
+
+9.12 => 9.30 sharp!
+
+
+

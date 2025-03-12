@@ -1,0 +1,9 @@
+<<Vending Machine>>
+    State VendingMachineState
+
+<<State>>
+
+<<IdleState>>            <<CollectCashState>>   <<ProductSelectState>> <<DispenseState>>
+pressCollectCashButton      addCoin                  selectProduct          dispenseProduct
+                            cancelTransaction
+

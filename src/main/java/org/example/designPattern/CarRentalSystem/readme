@@ -1,0 +1,22 @@
+Requirement
+============
+
+USER ---> STORE / SITE
+            Location wise Store
+            Store has all vehicle
+
+USER ---> RESERVE CAR --> BILL --> PAYMENT
+
+USER ---> RETURN VEHICLE
+
+Objects
+======
+
+Stores
+Car
+Location
+User
+Reservation
+Bill
+Payment
+
