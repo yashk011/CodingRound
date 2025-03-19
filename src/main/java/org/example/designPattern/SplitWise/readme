@@ -1,0 +1,118 @@
+Step 1 Req. Gathering
+======================
+
+1. User should be able to create groups
+2. User should be able to add friends
+3. User should be able to manage expense
+4. User should be able to divide expense or split between friends
+5. Split - Equal , Unequal, Percentage
+6. Balance Sheet of each user.
+
+
+Step 2 -Object Identification
+==============================
+
+SplitWise
+User
+Group
+Expense
+Split
+Balance Sheet
+
+==============================================
+When a expense is added -
+
+Case 1 -
+========
+
+Expense = 100 Paid By Yash
+Equal Split = Frnd 1 , Frnd2 , Frnd 3 , Frnd 4
+
+Frnd 1 = 25 -> Yash
+Frnd 2 = 25 -> Yash
+Frnd 3 = 25 -> Yash
+
+
+Balance Sheet -
+=============
+
+Yash owe x to frnd n
+Yash gets 25 from frnd1
+
+============
+UML Diagram
+https://excalidraw.com/#json=UieK9CZbJbn4K_Nvx3JIg,Rd_EZzbC26Y4-j2SdYvYow
+============
+
+<<Expense>>
+- id : String
+- description : amout
+- paidBy : User
+- splitType : SplitType
+- splits: List<Split>
+- amount : int
+
+===> Expense has split
+
+<<Split>> (Client will send me amount and give me)
+- user : User
+- amount : double
+
+===> Expense has user
+
+<<User>>
+- name : String
+- userExpenseBalanceSheet :UserExpenseBalanceSheet
+
+===> Group has Expense
+
+<<Group>>
+- users : List<User>
+- expenses : List<Expense>
+- expenseController : ExpenseController
+===============================================================
+
+<<ExpenseController>>
+- expenseSplitFactory : ExpenseSplitFactory // Get an instance of Expense Split
++ createExpense() : boolean
+
+
+<<ExpenseSplitFactory>>
++ getExpenseSPlit(SplitType type) : boolean
+
+                            <<IExpenseSplit>>  //Validates whether the sum of all split is eq to total sum
+                            validateRequest()
+
+       <<EqualExpenseSplit>>   <<UnequalExpenseSplit>> <<PercentageSplit>>
+
+==============================================================================
+
+<<UserController>
+- users: List<user>
++ addUser()
+
+UserController has User
+
+===============================================================================
+
+<<GroupController>
+- groups: List<Group>
++ createGroup()
+
+=========================================================================
+<<UserExpenseBalanceSheet>>
+- balanceSheet - Map<User, Balance>
+- totalIOwe : int
+- totalIGet : int
+
+Balance
+- amount : int (- means you owe and + means u get back)
+
+<<BalanceSheetController>>
++ updateBalanceSheet()
+=========================================================================
+
+SplitWiseApp
+- userController: UserController
+- expenseController: ExpenseController
+- groupController: GroupController

@@ -1,0 +1,37 @@
+Def -
+====
+
+1. Adapter Pattern is used when the client wants to interact with server
+and expect certain format but server sends data in other format.
+
+2. Bridges the Gap between existing interface and expected interface.
+
+Use Case -
+=========
+
+1. XML to JSON Parser
+======================
+
+Client ---       Adapter --- Server
+(accepts json)                (sends xml)
+
+
+2. Weight Machine
+=================
+
+        server return weight in pound
+        but client expects weight in kgs
+
+
+3. Power Adapter and Normal Socket
+===================================
+    Adapter is required
+
+
+Client --->   IAdapter
+                |
+                | isA
+                |        hasA
+              Adapter <------- Server (Actual Interface)
+
+

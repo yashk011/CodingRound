@@ -1,0 +1,5 @@
+Facade Pattern
+==============
+1. Simple
+2. Hides complexity from client by introducing a facade pattern
+3. Client connects to Facade
