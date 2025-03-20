@@ -61,7 +61,7 @@ public class Match {
                 this.innings[i].setBowlingTeam(bowlingTeam);
                 this.innings[i].setBattingTeam(battingTeam);
                 this.innings[i].setMatchType(matchType);
-                innings[i].startInnings(innings[0].getRuns());
+                innings[i].startInnings(bowlingTeam.getTotalRuns());
 
                 if(bowlingTeam.getTotalRuns() > battingTeam.getTotalRuns()) {
                     bowlingTeam.setWinner(true);

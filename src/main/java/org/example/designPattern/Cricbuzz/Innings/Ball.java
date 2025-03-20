@@ -27,13 +27,13 @@ public class Ball {
          playedBy = battingTeam.getStriker();
         if(bowlingTeam.getCurrentBowler() == null)
             bowledBy = bowlingTeam.getNextBaller();
-            bowledBy = bowlingTeam.getCurrentBowler();
-            ballType = BallType.NORMAL;
+        bowledBy = bowlingTeam.getCurrentBowler();
+        ballType = BallType.NORMAL;
 
         if(isWicketTaken()) {
             runType = RunType.ZERO;
             wicket = new Wicket("BOLD", bowledBy, this);
-            battingTeam.setStriker(battingTeam.getNextBatsMan());
+            battingTeam.setStriker(null);
         }
         else {
             runType = getRunType();
@@ -44,6 +44,7 @@ public class Ball {
                 battingTeam.setNonStriker(temp);
             }
         }
+
          System.out.println("Ball Bowled By - " + bowledBy.getName());
          System.out.println("Ball Played By - " + playedBy.getName());
          System.out.println("Run - " + runType.name());

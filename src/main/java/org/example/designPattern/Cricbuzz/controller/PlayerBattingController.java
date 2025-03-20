@@ -25,20 +25,18 @@ public class PlayerBattingController {
         nonStriker = players.remove();
     }
 
-    public Player getNextPlayer() throws Exception {
+    public void getNextPlayer() throws Exception {
 
-//        if(striker == null)
-//            striker =players.remove();
-//
-//        if(nonStriker == null)
-//            nonStriker = players.remove();
-//
-//        return null;
+        if(striker == null)
+            striker =players.remove();
 
-        if(!players.isEmpty())
-            return players.remove();
-        else
-            throw new Exception("All Batsmen are out");
+        if(nonStriker == null)
+            nonStriker = players.remove();
+
+//        if(!players.isEmpty())
+//            return players.remove();
+//        else
+//            throw new Exception("All Batsmen are out");
     }
 
 }

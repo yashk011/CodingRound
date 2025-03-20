@@ -56,8 +56,8 @@ public class Team {
         }
     }
 
-    public Player getNextBatsMan() throws Exception{
-        return playerBattingController.getNextPlayer();
+    public void getNextBatsMan() throws Exception{
+        playerBattingController.getNextPlayer();
     }
 
     public void setStriker(Player player) {

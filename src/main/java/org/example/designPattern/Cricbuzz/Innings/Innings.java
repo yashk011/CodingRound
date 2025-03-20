@@ -22,7 +22,7 @@ public class Innings {
 
     public void startInnings(int runs) throws Exception {
         try {
-            Player batter = battingTeam.getNextBatsMan();
+            battingTeam.getNextBatsMan();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
@@ -33,7 +33,7 @@ public class Innings {
             overs.add(over);
             Player currentBowler = battingTeam.getNextBaller();
 
-            boolean won = over.startOver(getRuns(), bowlingTeam, battingTeam);
+            boolean won = over.startOver(runs, bowlingTeam, battingTeam);
             if(won == true) {
                 break;
             }
