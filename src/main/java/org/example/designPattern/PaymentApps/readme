@@ -1,0 +1,19 @@
+- Design Payment App
+======================
+
+Question - Do you want Payment Gateway or Wallet Type Application or Phonepe or Gpay  ?
+Ans - Wallet Type Application
+
+
+Requirement Gathering
+=====================
+
+1. Create Class Diagram and Write working code
+2. Functional Req
+    1. User can create acc using phone number and pass
+    2. User can update profile
+    3. Send Money to Other User
+    4. Send Money to a bank acc
+    5. Allow user to refund an transaction
+    6. Allow user to make payment for transaction via card / UPI
+
