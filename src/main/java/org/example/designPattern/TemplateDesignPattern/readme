@@ -1,0 +1,21 @@
+1. Behavioural Design Pattern
+2. If there is some common steps between 2 or more flows which needs to be followed
+    in certain sequence
+3. The actual impl will be different
+4. You can have some template which can have common flow where clients can override
+
+Payment App -
+
+1. Payment to Friend
+
+2. Payment to Merchant
+
+
+Common Steps -
+============
+
+validateRequest
+checkBalance
+debit money
+charge platform fees - 0 for frnd, 2% for merchant
+credit money

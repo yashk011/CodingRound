@@ -1,0 +1,136 @@
+Requirements
+===========
+
+Design Swiggy
+
+1. XXXXX
+2. User should be able to search for restaurants by name
+3. User should be able to browse menu for a particular restaurant
+4. User should be able to search for restaurants by food item
+5. User should be able to add item to cart
+6. User should be able to order food item.
+7. User should be able to track order item/status.
+
+FLOW DIAGRAM
+=============
+
+USER --> SEARCH FOR RESTAURANT --> SELECTS ITEM TO ORDER
+     --> PUT THE ITEM IN ORDER --> PLACE ORDER
+     ------------------------------------------------
+     --> ORDER ACCEPTED --> ORDER PREPARED --> DELIVERY PERSON ASSIGNED
+     --> ORDER DISPATCHED  --> ORDER DELIVERED
+
+
+MODEL and ENTITIES
+==================
+
+1. USER (RDBMS)
+    name
+    email
+    address - city , pincode , building
+    contact number
+
+2. RESTAURANTS
+    name
+    List<MenuItem> menuItem
+    working hours
+    address
+
+=======================
+
+3. MENU_ITEM
+    dish_name
+    dish_price
+    dish_details
+
+ENTITY
+------
+
+RESTAURANT
+    restaurant id
+    working hours
+    address
+
+RESTAURANT DISHES
+    dish_id
+    restaurant_id
+    dish_details
+    dish_price
+========================
+
+5. CART
+    Map<Menu_Item, Integer>
+    int total_value
+
+========================
+
+6. ORDER
+
+    MODEL
+    ----
+
+    Map<Menu_Item, Integer>
+    int total_value
+    int restaurant_id
+    int user id
+    boolean isPaid
+
+   ENTITY
+   ------
+
+   Order
+       order id
+       restaurant id
+       user id
+       boolean isPaid
+
+   Order Item
+       order id
+       dish id
+       int quantity
+==========================
+
+7. DELIVERY AGENT
+    name
+    working status // FREE ASSIGNED
+    isWorking // true false
+    pincode
+
+8. Serviceability Pin code
+    pincode -> [list of pincode]
+    pincode -> restaurant
+    for a given pincode what all restaurants needs can be served
+
+
+
+Services
+======
+
+Catalog Service --> displays catalog to user based on location.
+Order Service --> accept order , and notifies us once the order is made
+Delivery Service --> Finds a deliver agent for a restaurant once order is accepted
+
+
+APIs
+====
+
+1. Get Restaurant by PinCode
+    GET /v1/foodbook/restaurant?pincode={pincode}
+
+    1. get all the serviceable pincode
+    2. get all the restaurants on these pincode
+
+2. Get Dishes for a restaurant
+
+    GET /v1/foodbook/restaurant/:id/menu
+
+ 3. PUT /v1/foodbook/cart/:user id/
+    {
+        restaurant id,
+        dish id,
+        quantity
+    }
+
+ 4. POST /v1/foodbook/cart/:user id/checkout
+    200/500
+

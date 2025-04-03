@@ -1,0 +1,12 @@
+Requirements -
+===========
+
+1. User should be able to register
+2. User should be able to add contacts / block contacts / unblock contacts
+3. User should be able to import contacts
+4. User should be able to mark calss as spam
+5. User should get notified if a call is spam if he gets the call
+6. User should be able to search by name/phone number
+7. User should be able to upgrade to premium plan
+8. User's contact should get stored in global directory once he signs up
+

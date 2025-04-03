@@ -1,0 +1,9 @@
+1. Use Mediator Design Pattern
+Obj1 <--> Mediator <--> Obj2
+
+2. Air Line Management System
+
+All Airplanes interacts via mediator design pattern
+
+3. Mediator Design Pattern is a Behavioural Design Patter
+

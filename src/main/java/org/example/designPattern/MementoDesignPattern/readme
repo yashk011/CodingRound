@@ -1,0 +1,7 @@
+1. It is used to keep track of history of snapshots
+2. The purpose of storing memento is for undo capability
+3. It is a behavioural design pattern
+4. Components
+    Caretaker
+    Memento
+    Actual Object

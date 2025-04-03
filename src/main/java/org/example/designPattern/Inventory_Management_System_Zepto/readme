@@ -1,0 +1,46 @@
+1.Basic Flow
+=========
+
+      1.Browse Product
+      2.Add  to Cart
+      2.Order  product
+      3.Make   payment / Checkout
+      4.Return product
+USER   ------------------>              IMS
+        (App / WebSite)
+
+
+2. Requirements
+============
+
+Functional Requirements
+---------------------
+
+1. User should be able to browse produts
+2. User should be able to add product to cart
+3.** User should be able to wishlist products
+4. User should be able to place order of products
+5. User should be able to make payments
+6.** User should be able to return product
+
+
+Non Functional Requirements
+--------------------------
+
+Out of Scope for LLD
+
+
+3. UML / Class Diagram
+=====================
+
+
+3. a) Object Identification (All Nouns in Requirements)
+
+-> User
+-> Product
+-> Order
+-> Cart
+-> Payment
+-> Inventory
+-> Warehouse
+-> Invoice

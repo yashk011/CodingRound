@@ -1,6 +1,7 @@
 package org.example.designPattern.ParkingLot.manager;
 
 import org.example.designPattern.ParkingLot.model.ParkingSpot;
+import org.example.designPattern.ParkingLot.model.Vehicle;
 import org.example.designPattern.ParkingLot.strategy.ParkingStrategy;
 
 import java.util.List;
@@ -25,5 +26,9 @@ public class FourWheelerParkingSpotManager extends ParkingSpotManager{
         this.parkingStrategy = parkingStrategy;
     }
 
+    @Override
+    public ParkingSpot findParkingSpot(Vehicle vehicle) {
+        return parkingStrategy.findParkingSpot(this.parkingSpotList);
+    }
 
 }

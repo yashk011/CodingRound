@@ -1,0 +1,24 @@
+Definition
+=========
+
+1. Structural Design Pattern
+2. Reduces the memory usage by sharing data among multiple objects
+3. Example -
+    a. Design Game
+    b. Design Word Processor
+
+When to Use
+=========
+
+1. Object Share Data
+2. Limited Memory Space
+3. Creation of Objects is Expensive
+
+
+How to Use
+=========
+1. Remove all uncommon data from object , just keep common object
+2. This class can be now made immutable
+3. Uncommon data passed as method params
+4. Once Flyweight object is created, we can cache the object and reuse it
+

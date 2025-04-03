@@ -16,8 +16,6 @@
     parkingSpots: List<ParkingSpot>
     parkingStrategy : ParkingStrategy
 
-
-
     ParkingSpotManager(List<ParkingSpot> list)
     addParkingSpot(ParkingSpot parkingSpot) : void
     removeParkingSpot(ParkingSpot parkingSpot) : void

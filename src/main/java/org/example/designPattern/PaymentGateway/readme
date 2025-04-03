@@ -1,0 +1,19 @@
+Requirement -
+------------
+
+1. User should be create account.
+2. User should be able add instruments for payment
+    a. Cards
+    b. UPI
+    c. Internet Banking
+
+3. User should be able to search Users to send money
+4. User should be able to make transactions
+5. User should be able to view transaction history
+
+Model / Entities
+
+1. User
+2. Instrument
+3. Transaction
+4. Transaction History
