@@ -1,0 +1,69 @@
+
+
+Controller -
+
+PaymentsController
+    PaymentService paymetService
+    BookingService bookingService;
+
+    paymentService.paymentFailed(bookingId, String user)
+    bookingService.confirmbooking(bookingId);
+
+BookingController
+    BookingService bookingService
+    ShowService showService
+
+    bookingService.createBooking(String showId , List<String> seatIds)
+
+
+MovieController
+    createMovie(String movieName)
+
+
+ShowController
+    SeatAvailabilityService seatAvailability;
+    addShow(String movieId, String screenId, startTime , endTime)
+    getSeatsAvailable(String showId)
+
+TheaterController
+    TheatreService theatreService;
+
+    createThreater(String theatreName)
+    createScreenInTheatre(String screenName , String theatreId)
+    createSeatInScreen(int rowNo, int seatNo , String screenId)
+
+
+
+Model -
+
+Theatre
+    - screens : List<Screen>
+
+    - addScreen(): void
+
+Screen
+    - show : Show
+    - seats : List<Seats>
+
+    - addSeat() : void
+
+Seat
+    - row : int
+    - col : int
+    - seatType : SeatType
+
+Show
+    - runningMovie : Movie
+    - startTime
+    - endTime
+
+Movie
+    - name : String
+
+Booking
+ - selectedSeats : List<Seats>
+ - bookingStatus : BookingStatus
+
+ + confirmBooking() : void
+ + expireBooking(): void
+ + isConfirmed() : boolean
